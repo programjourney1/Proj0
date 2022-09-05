@@ -30,10 +30,9 @@ public class Main {
         System.out.println("---------------------------------------------------");
         ///////////////
         System.out.println("Welcome to The Reptile Encyclopedia.");
-        System.out.println("Both reading and writing entries enabled.");
         ReptileService rts = new ReptileService();
         ////////////////////////main menu
-System.out.println("Choose Action: 1= Read Entries, 2= Write Entry, 3= Search For Environment, 4= ReadMe");
+System.out.println("Choose Action: 1= Read Entries, 2= Write Entry, 3= Search For Environment, 4= Add Environment, 5= ReadMe");
 ///////////////////////////////////////////////////////////////read
 int c;
               c = sc.nextInt();
@@ -68,30 +67,28 @@ int c;
             k = sk.nextInt();
             if(k== 1)
             {
-                System.out.println("You have selected: Lizards \n"+"Please Input Species, and press enter");
+                System.out.println("You have selected: Lizards \n"+"Please Input Species, and press enter:");
                String Species = sk.next();
                 System.out.println("Input Description");
                String Description = skd.nextLine();
                 rts.addLizard(Species, Description);
-
-
             }
             else if (k== 2)
-            { System.out.println("You have selected: Turtles \n"+"Please Input Species, and press enter");
+            { System.out.println("You have selected: Turtles \n"+"Please Input Species, and press enter:");
                 String Species = sk.next();
                 System.out.println("Input Description");
                 String Description = skd.nextLine();
                 rts.addTurtle(Species, Description);
             }
             else if (k==3)
-            { System.out.println("You have selected: Crocodilia \n"+"Please Input Species, and press enter");
+            { System.out.println("You have selected: Crocodilia \n"+"Please Input Species, and press enter:");
                 String Species = sk.next();
                 System.out.println("Input Description");
                 String Description = skd.nextLine();
                 rts.addCroc(Species, Description);
             }
             else if (k==4)
-            { System.out.println("You have selected: Snakes \n"+"Please Input Species, and press enter");
+            { System.out.println("You have selected: Snakes \n"+"Please Input Species, and press enter:");
                 String Species = sk.next();
                 System.out.println("Input Description");
                 String Description = skd.nextLine();
@@ -99,18 +96,43 @@ int c;
             }
             else{System.out.println("Not a valid input");}
         }
-         ///////////////////////////////////Search Enviro
+         ///////////////////////////////////Search Enviro Read
         else if (c == 3) {
-            System.out.println(" Search for Natural Environment by Species");
+            System.out.println("Search for Natural Environment by Species. Type Species name:");
+            System.out.println("====================================== \n" +
+                    "____                     ___           \n" +
+                    "|    |\\  | \\      /_____ |  |  ____    \n" +
+                    "|_   | \\ |  \\    /   |   |__|  |   |   \n" +
+                    "|    |  \\|   \\  /    |   |  \\  |   |   \n" +
+                    "|___ |   \\    \\/   __|__ |   \\ |___|   \n" +
+                    "====================================== \n" +
+                    " ____   ___  ___  __   _____           \n" +
+                    " |     |    |  | |  |  |     |  |      \n" +
+                    " |___  |_   |__| |__|  |     |__|      \n" +
+                    "     | |    |  | |  \\  |     |  |      \n" +
+                    " ____| |___ |  | |   \\ |____ |  |      \n" +
+                    "=======================================");
             Scanner skd = new Scanner(System.in);
             String spec;
-            spec = skd.nextLine();
+            spec = skd.next();
             System.out.println(rs.getEnviro(spec));
         }
+        //////////////////////////////Enviro Write
+        else if (c == 4) {
+            System.out.println("You have selected to add a Species and Environment. Type Species Name:");
+            Scanner skd = new Scanner(System.in);
+            Scanner sk = new Scanner(System.in);
+            String Species = skd.next();
+            System.out.println("Type Species Environment");
+            String Enviro = skd.next();
+            rts.addEnviro(Species, Enviro);
+        }
+
          ///////////////////////////////Readme
-        else if (c == 4){
+        else if (c == 5){
                 System.out.println("ReadMe: This program is an interactive encyclopedia of reptile facts. " + '\n'+
                         "It is divided by reptile Order and then Species. "+'\n' +"You may input an entry or read previous entries");
+            System.out.println("Environment includes Species and their natural Environment. You may add entries to this field as well. ");
                 }
             else{System.out.println("Not a valid input");}
 ///////////////////////////////////

@@ -28,12 +28,11 @@ public List<Enviro> getEnviro(String Enviro){
     List<Enviro> allEnviro = new ArrayList<>();
     try{
         //Statement statement =conn.createStatement();
-        PreparedStatement statement = conn.prepareStatement("Select Enviroment FROM Enviro where Species = ?");
-       // ResultSet rs = statement.executeQuery("Select Environment FROM Enviro where Species = ?");
+        PreparedStatement statement = conn.prepareStatement("Select * FROM Enviro where Species = ?");
         statement.setString(1,Enviro);
         ResultSet rs = statement.executeQuery();
         while (rs.next()){
-            Enviro loadingEnviro= new Enviro (rs.getString("Enviroment"));
+            Enviro loadingEnviro= new Enviro (rs.getString("Enviroment"), rs.getString("Species"));
             allEnviro.add(loadingEnviro);}
     }catch (SQLException e){
         e.printStackTrace();
@@ -144,8 +143,18 @@ public void addTurtle(Turtles r){
     public String getTurtles(String Species, String Description ) {
         return Species + Description;
     }
-//////////////////////////////////////Get Enviro
-
+//////////////////////////////////////Write Enviro
+public void addEnviro(Enviro k){
+    try{
+        PreparedStatement statement = conn.prepareStatement("insert into Enviro( Species, Enviroment) " +
+                "values (?,?)");
+        statement.setString(1, k.getEnviroS());
+        statement.setString(2, k.getEnviroE());
+        statement.executeUpdate();
+    }catch(SQLException e){
+        e.printStackTrace();
+    }
+}
 
 }
 

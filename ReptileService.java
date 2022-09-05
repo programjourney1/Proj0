@@ -44,23 +44,16 @@ public void addSnake(String Species, String Description){
         Turtles newTurtle = new Turtles(Species, Description);
         r.addTurtle(newTurtle);}
 
-   public List <Enviro> getEnviro(String E) {
-      String En = r.getEnviro(E).toString();
+   public List <Enviro> getEnviro(String Enviro) {
+      String En = r.getEnviro(Enviro).toString();
       return r.getEnviro(En);
     }
 
-
+    public void addEnviro(String species, String enviro) {
+        Enviro newEnviro= new Enviro(species, enviro);
+        r.addEnviro(newEnviro);
+    }
 }
 
-/*
-
-
-    public void addReptiles(int Ordery, String Species, String Description) {
-       Reptiles existingReptiles = r.getReptiles(Species, Description);
-        if (existingReptiles == null) {
-            Reptiles newReptile = new Reptiles(Species);
-            r.addReptiles(newReptile);
-        } else {
-        } */
 
 

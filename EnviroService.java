@@ -7,6 +7,8 @@ import java.util.List;
 
 public class EnviroService {
     ReptileRepo rr;
+
+
     public EnviroService() throws SQLException{
         rr=new ReptileRepo();
     }
@@ -16,6 +18,13 @@ public class EnviroService {
    public List<Enviro> getEnviro(String E){
        return rr.getEnviro(E);
     }
+    public void addEnviro(String Species, String Enviro){
+
+
+        Enviro newEnviro = new Enviro(Species, Enviro);
+        rr.addEnviro(newEnviro);}
 
 
 }
+
+

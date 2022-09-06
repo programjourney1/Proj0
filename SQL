@@ -1,0 +1,69 @@
+drop table if exist Enviros;
+select * FROM Lizards;
+truncate table Lizards;
+truncate table Snakes;
+truncate table Enviros;
+truncate table Turtles ;
+truncate table Crocs ;
+truncate table Reptiles;
+
+CREATE TABLE Lizards(
+Species varchar(255) primary key, Description varchar(255)  
+);
+insert into Lizards(Species, Description)
+values
+( 'Leopard Gecko', '1 of 2 domesticated reptiles. Commonly kept as pets. Insectivores.'),
+('Crested Gecko', 'A commonly kept gecko species. They need high humidity. Can eat both insects and fruits.'),
+('Tegu', 'A very intelligent lizard with similar mental traits to a dog. Can grow large. Native to South America');
+
+CREATE TABLE Turtles(
+Species varchar(255) primary key, Description varchar(255)  
+);
+insert into Turtles(Species, Description)
+values
+
+('Common Snapping Turtle', 'An ambush hunter, with a powerful bite. Found in the Southern USA'),
+( 'Yellow Bellied Slider', 'An active turtle species. They eat both small prey and vegetation.'),
+( 'Russian Tortoise','A land tortoise. Despite the name, are native to the United States.');
+
+CREATE TABLE Crocs(
+Species varchar(255) primary key, Description varchar(255)  
+);
+insert into Crocs(Species, Description)
+values
+('American Alligator', 'Native to the southern United States. Large and bred from food and leather. Less aggressive toward humans than many crocodile species.'),
+('Saltwater Crocodile', 'The largest crocodile. Known to eat humans. They can be found in large rivers or even swimming in coastal waters.'),
+('Gharial', 'A unique species that has a narrow pointed snout used to catch fish. Native to India.');
+
+CREATE TABLE Snakes(
+Species varchar(255) primary key, Description varchar(255)  
+);
+insert into Snakes(Species, Description)
+values
+('Western Hognose Snake','To the untrained eye they may appear to be a venomous rattlesnake. They are harmless to humans and commonly kept as pets'),
+('Kingsnake', 'Includes many species. Preferred food is other snakes, which they eat whole. Known to eat venomous snakes.'),
+('Rat Snake', 'Includes many common snakes such as the corn snake. Rat snakes may look like venomous snakes even when they are not.');
+
+CREATE TABLE Reptile(Species varchar(255) primary key, Description varchar(255));
+Insert INTO Reptile(Species, Description)
+values 
+( 'LeopardGecko', '1 of 2 domesticated reptiles. Commonly kept as pets. Insectivores.'),
+('CrestedGecko', 'A commonly kept gecko species. They need high humidity. Can eat both insects and fruits.');
+('Tegu', 'A very intelligent lizard with similar mental traits to a dog. Can grow large. Native to South America'),
+('CommonSnappingTurtle', 'An ambush hunter, with a powerful bite. Found in the Southern USA'),
+( 'YellowBelliedSlider', 'An active turtle species. They eat both small prey and vegetation.'),
+( 'RussianTortoise','A land tortoise. Despite the name, are native to the United States.'),
+('AmericanAlligator', 'Native to the southern United States. Large and bred from food and leather. Less aggressive toward humans than many crocodile species.'),
+('SaltwaterCrocodile', 'The largest crocodile. Known to eat humans. They can be found in large rivers or even swimming in coastal waters.'),
+('Kingsnake', 'Includes many species. Preferred food is other snakes, which they eat whole. Known to eat venomous snakes.'),
+('WesternHognoseSnake','To the untrained eye they may appear to be a venomous rattlesnake. They are harmless to humans and commonly kept as pets'),
+('Gharial', 'A unique species that has a narrow pointed snout used to catch fish. Native to India.');
+('RatSnake', 'Includes many common snakes such as the corn snake. Rat snakes may look like venomous snakes even when they are not.');
+
+Create Table Enviro(Enviroment varchar(255) primary key, Species varchar(255) );
+insert into Enviro(Enviroment, Species)
+values
+('Arid', 'LeopardGecko'),('Tropical', 'CrestedGecko'),('Savannah', 'Tegu'),
+('Still Waters', 'CommonSnappingTurtle'),('Ponds', 'YellowBelliedSlider'),('Forest', 'RussianTortoise'),
+('Swampy Waters', 'AmericanAlligator'),('Rivers /Coastal Waters', 'SaltwaterCrocodile'),('Large Rivers', 'Gharial'),
+('Mountains and Plains', 'WesternHognoseSnake'),('Varied/ Temperate', 'Kingsnake'),('Varied Temperate', 'RatSnake');

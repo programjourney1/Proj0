@@ -32,7 +32,7 @@ public class Main {
         System.out.println("Welcome to The Reptile Encyclopedia.");
         ReptileService rts = new ReptileService();
         ////////////////////////main menu
-System.out.println("Choose Action: 1= Read Entries, 2= Write Entry, 3= Search For Environment, 4= Add Environment, 5= ReadMe");
+System.out.println("Choose Action: 1= Read Entries, 2= Write Entry, 3= Search For Environment, 4= Add Environment,5= ALL DATA, 6= ReadMe");
 ///////////////////////////////////////////////////////////////read
 int c;
               c = sc.nextInt();
@@ -98,7 +98,6 @@ int c;
         }
          ///////////////////////////////////Search Enviro Read
         else if (c == 3) {
-            System.out.println("Search for Natural Environment by Species. Type Species name:");
             System.out.println("====================================== \n" +
                     "____                     ___           \n" +
                     "|    |\\  | \\      /_____ |  |  ____    \n" +
@@ -112,6 +111,7 @@ int c;
                     "     | |    |  | |  \\  |     |  |      \n" +
                     " ____| |___ |  | |   \\ |____ |  |      \n" +
                     "=======================================");
+            System.out.println("Search for Natural Environment by Species. Type Species name:");
             Scanner skd = new Scanner(System.in);
             String spec;
             spec = skd.next();
@@ -119,7 +119,7 @@ int c;
         }
         //////////////////////////////Enviro Write
         else if (c == 4) {
-            System.out.println("You have selected to add a Species and Environment. Type Species Name:");
+            System.out.println("You have selected to add a Species and Environment to the Environment database. \n Type Species Name:");
             Scanner skd = new Scanner(System.in);
             Scanner sk = new Scanner(System.in);
             String Species = skd.next();
@@ -128,11 +128,18 @@ int c;
             rts.addEnviro(Species, Enviro);
         }
 
-         ///////////////////////////////Readme
-        else if (c == 5){
+         ///////////////////////////////Show All
+        else if (c==5){
+            System.out.println("Showing ALL results stored:");
+            System.out.println(rs.getAll());
+        }
+
+        //////////////////////////////ReadMe
+        else if (c == 6){
                 System.out.println("ReadMe: This program is an interactive encyclopedia of reptile facts. " + '\n'+
                         "It is divided by reptile Order and then Species. "+'\n' +"You may input an entry or read previous entries");
-            System.out.println("Environment includes Species and their natural Environment. You may add entries to this field as well. ");
+            System.out.println("Environment includes Species and their natural Environment. You may add entries to this field as well. \n" +
+                    "A full list off all data is also available ");
                 }
             else{System.out.println("Not a valid input");}
 ///////////////////////////////////

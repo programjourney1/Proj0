@@ -29,10 +29,12 @@ public List<Enviro> getEnviro(String Enviro){
     try{
         //Statement statement =conn.createStatement();
         PreparedStatement statement = conn.prepareStatement("Select * FROM Enviro where Species = ?");
+
         statement.setString(1,Enviro);
         ResultSet rs = statement.executeQuery();
         while (rs.next()){
             Enviro loadingEnviro= new Enviro (rs.getString("Enviroment"), rs.getString("Species"));
+
             allEnviro.add(loadingEnviro);}
     }catch (SQLException e){
         e.printStackTrace();
@@ -42,12 +44,14 @@ public List<Enviro> getEnviro(String Enviro){
     /////////////
     public List<Snakes> getSnakes(){
         List<Snakes> allSnakes = new ArrayList<>();
+
         try{
             Statement statement =conn.createStatement();
             ResultSet rs = statement.executeQuery("Select * FROM Snakes");
             while (rs.next()){
                 Snakes loadingSnakes= new Snakes(rs.getString("Species"),rs.getString("Description"));
-                allSnakes.add(loadingSnakes);}
+                allSnakes.add(loadingSnakes);
+                }
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -116,10 +120,11 @@ public List<Enviro> getEnviro(String Enviro){
 ////////////
 public void addSnake(Snakes r){
     try{
-        PreparedStatement statement = conn.prepareStatement("insert into Snakes( Species, Description) " +
+        PreparedStatement statement = conn.prepareStatement("insert into Snakes( Species, Description)  " +
                 "values (?,?)");
         statement.setString(1, r.getSnakesS());
         statement.setString(2, r.getSnakesD());
+
         statement.executeUpdate();
     }catch(SQLException e){
         e.printStackTrace();
@@ -155,6 +160,24 @@ public void addEnviro(Enviro k){
         e.printStackTrace();
     }
 }
+/////////////////////////ALL
+public List<All> getAll(){
+    List<All> allAll = new ArrayList<>();
+    try{
+        PreparedStatement statement = conn.prepareStatement("SELECT Reptile.Description, Enviro.Species,Enviroment\n" +
+                "FROM Reptile\n" +
+                "Join Enviro\n" +
+                "ON Reptile.Species =Enviro.Species");
+        ResultSet rs = statement.executeQuery();
+        while (rs.next()){
+            All loadingAll= new All (rs.getString("Species"), rs.getString("Description"), rs.getString("Enviroment"));
+            allAll.add(loadingAll);}
+    }catch (SQLException e){
+        e.printStackTrace();
+    }
+    return allAll;
+}
+
 
 }
 

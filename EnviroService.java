@@ -17,6 +17,7 @@ public class EnviroService {
     }
    public List<Enviro> getEnviro(String E){
        return rr.getEnviro(E);
+
     }
     public void addEnviro(String Species, String Enviro){
 
@@ -25,6 +26,9 @@ public class EnviroService {
         rr.addEnviro(newEnviro);}
 
 
+    public String getAll() {
+        return String.valueOf(rr.getAll());
+    }
 }
 
 
